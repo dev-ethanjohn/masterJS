@@ -1439,3 +1439,107 @@ console.log([...question.values()]);
 ![Alt text](images/datas2.png)
 
 <br>
+
+## 🧠 **CHALLENGE 3**
+
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+   [FIRST HALF] 17: ⚽️ GOAL
+
+**INITIAL DATA**
+
+```js
+const gameEvents = new Map([
+  [17, "⚽️ GOAL"],
+  [36, "🔁 Substitution"],
+  [47, "⚽️ GOAL"],
+  [61, "🔁 Substitution"],
+  [64, "🔶 Yellow card"],
+  [69, "🔴 Red card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽️ GOAL"],
+  [80, "⚽️ GOAL"],
+  [92, "🔶 Yellow card"],
+  [17, "⚽️ GOAL"], // the duplicate
+]);
+```
+
+**SOLUTION:**
+
+```js
+// 1. Create an array 'events' of the different game events that happened (no duplicates)
+// const gameEventsSet = new Set(gameEvents.values());
+// console.log(gameEventsSet);
+// /*
+// Set(4) {
+//   '⚽️ GOAL',
+//   '🔁 Substitution',
+//   '🔶 Yellow card',
+//   '🔴 Red card'
+// }
+// */
+// const gameEventsArr = [...gameEventsSet];
+// console.log(gameEventsArr); // [ '⚽️ GOAL', '🔁 Substitution', '🔶 Yellow card', '🔴 Red card' ]
+
+// shorter version
+const shorterVersion = [...new Set(gameEvents.values())];
+console.log(shorterVersion); // [ '⚽️ GOAL', '🔁 Substitution', '🔶 Yellow card', '🔴 Red card' ]
+
+// 2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+gameEvents.delete(64);
+console.log(gameEvents);
+/* Map(10) {
+   17 => '⚽️ GOAL',
+   36 => '🔁 Substitution',
+   47 => '⚽️ GOAL',
+   61 => '🔁 Substitution',
+   69 => '🔴 Red card',
+   70 => '🔁 Substitution',
+   72 => '🔁 Substitution',
+   76 => '⚽️ GOAL',
+   80 => '⚽️ GOAL',
+   92 => '🔶 Yellow card'
+} */
+
+// 3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+console.log(
+  `An event happened, on average every ${90 / gameEvents.size} minutes.`
+); // An event happened, on avergae every 9 minutes.
+const time = [...gameEvents.keys()].pop();
+console.log(`An event happened, on average ${time / gameEvents.size} minutes.`); //An event happened, on average 9.2 minutes.
+
+// 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+// [FIRST HALF] 17: ⚽️ GOAL
+
+for (const [minutes, game] of gameEvents) {
+  console.log(` ${minutes <= 45 ? `[FIRST HALF]` : `[SECOND HALF]`}: ${game}`);
+}
+
+/*
+ [FIRST HALF]: ⚽️ GOAL
+ [FIRST HALF]: 🔁 Substitution
+ [SECOND HALF]: ⚽️ GOAL
+ [SECOND HALF]: 🔁 Substitution
+ [SECOND HALF]: 🔴 Red card
+ [SECOND HALF]: 🔁 Substitution
+ [SECOND HALF]: 🔁 Substitution
+ [SECOND HALF]: ⚽️ GOAL
+ [SECOND HALF]: ⚽️ GOAL
+ [SECOND HALF]: 🔶 Yellow card
+*/
+```
+
+<br>
+
+## 1️⃣6️⃣ **Working with Strings 1**
+
+## 1️⃣7️⃣
+
+## 1️⃣8️⃣
+
+## 🧠 **CHALLENGE 4**
