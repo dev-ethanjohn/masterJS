@@ -1428,14 +1428,14 @@ console.log([...question.values()]);
 
 #### OVERVIEW
 
-![Alt text](image.png)
+![Alt text](images/datas.png)
 
 #### ARRAYS VS SETS
 
-![Alt text](image-1.png)
+![Alt text](images/datas1.png)
 
 #### OBJECTS VS MAPS
 
-![Alt text](image-2.png)
+![Alt text](images/datas2.png)
 
 <br>
