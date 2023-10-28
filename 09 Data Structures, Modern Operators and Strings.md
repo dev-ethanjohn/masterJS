@@ -1538,6 +1538,53 @@ for (const [minutes, game] of gameEvents) {
 
 ## 1️⃣6️⃣ **Working with Strings 1**
 
+```js
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]); // A
+console.log("B737"[0]); // B
+
+console.log(airline.length); // 16
+console.log("B737".length); // 4
+
+console.log(airline.indexOf("r")); // 6
+console.log(airline.lastIndexOf("r")); // 10
+console.log(airline.indexOf("portugal")); // -1
+
+// slice method
+
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 7)); // Air
+
+// if i dont know the string or the index of the string to be extracted
+console.log(airline.slice(0, airline.indexOf(" "))); // TAP
+console.log(airline.slice(airline.lastIndexOf(" ") + 1)); // Portugal
+
+console.log(airline.slice(-2)); // al
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === "B" || s === "E") {
+    console.log("You got the middle seat");
+  } else {
+    console.log("You got lucky!");
+  }
+};
+
+checkMiddleSeat("11B"); // You got the middle seat
+checkMiddleSeat("23C"); // You got lucky!
+checkMiddleSeat("3E"); // You got the middle seat
+
+console.log(new String("Ethan")); // [String: 'Ethan']
+console.log(typeof new String("Ethan")); // object
+```
+
+> **NOTE: all string methods returns primitive**
+
+<br>
+
 ## 1️⃣7️⃣
 
 ## 1️⃣8️⃣
