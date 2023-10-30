@@ -25,3 +25,16 @@
 // check
 
 ## Hello
+
+git filter-branch --env-filter '
+if [ "$GIT_COMMITTER_EMAIL" = "dev-ejohnpaguntalan@gmail.com" ]
+then
+export GIT_COMMITTER_NAME="$GIT_COMMITTER_NAME"
+    export GIT_COMMITTER_EMAIL=dev.ejohnpaguntalan@gmail.com
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "dev-ejohnpaguntalan@gmail.com" ]
+then
+export GIT_AUTHOR_NAME="$GIT_AUTHOR_NAME"
+export GIT_AUTHOR_EMAIL=dev.ejohnpaguntalan@gmail.com
+fi
+' -- --all
